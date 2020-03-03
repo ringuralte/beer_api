@@ -9,7 +9,7 @@ const createTableBeer = () => {
     change_stock INTEGER NOT NULL,
     new_stock INTEGER NOT NULL,
     cost INTEGER NOT NULL,
-    date DATE NOT NULL DEFAULT CURRENT_DATE
+    date VARCHAR(25) NOT NULL
   )`;
 
   pool
