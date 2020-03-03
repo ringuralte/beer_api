@@ -8,7 +8,7 @@ router.post("/api/postBeer", (req, res) => {
   const newStock = parseInt(oldStock, 10) + parseInt(changeStock, 10);
   const query = {
     text:
-      "INSERT into beer (name, old_stock, change_stock, cost, new_stock, date) values ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP)",
+      "INSERT into beer (name, old_stock, change_stock, cost, new_stock, date) values ($1, $2, $3, $4, $5, (select current_date))",
     values: [name, oldStock, changeStock, cost, newStock]
   };
   db.query(query)

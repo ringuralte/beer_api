@@ -9,21 +9,13 @@ const createTableBeer = () => {
     change_stock INTEGER NOT NULL,
     new_stock INTEGER NOT NULL,
     cost INTEGER NOT NULL,
-    date TIMESTAMPTZ
+    date DATE NOT NULL DEFAULT CURRENT_DATE
   )`;
-
-  const setTimezone = `SET timezone = 'Asia/Kolkata'`;
 
   pool
     .query(queryString)
     .then(() => {
       console.log("beer table created");
-    })
-    .catch(err => console.log(err));
-  pool
-    .query(setTimezone)
-    .then(() => {
-      console.log("timezone set to Asia/Kolkata");
     })
     .catch(err => console.log(err));
 };

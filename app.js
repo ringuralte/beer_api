@@ -9,7 +9,8 @@ const server = require("http").Server(app);
 
 app.use(
   cors({
-    origin: "https://sunhlukawnbeer.now.sh",
+    origin: "http://localhost:3000",
+    // origin: "https://sunhlukawnbeer.now.sh",
     credentials: true
   })
 );
