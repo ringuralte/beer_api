@@ -53,7 +53,6 @@ router.delete("/api/deleteBeer", (req, res) => {
 });
 
 router.put("/api/updateBeer", (req, res) => {
-  // console.log(req.body.data.id);
   const { id, name, old_stock, change_stock, cost } = req.body.data;
   const new_stock = parseInt(old_stock, 10) + parseInt(change_stock, 10);
   const query = {
