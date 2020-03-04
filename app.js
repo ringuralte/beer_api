@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
 const app = express();
-const server = require("http").Server(app);
 
 app.use(
   cors({
@@ -17,11 +17,16 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 const beers = require("./routes/beer");
+const login = require("./routes/login");
+const checkToken = require("./routes/checkToken");
 
+app.use(checkToken);
 app.use(beers);
+app.use(login);
 
-server.listen(process.env.PORT, () =>
+app.listen(process.env.PORT, () =>
   console.log(`listening on ${process.env.PORT}`)
 );
