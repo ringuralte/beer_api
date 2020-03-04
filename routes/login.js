@@ -35,8 +35,7 @@ router.post("/api/login", (req, res) => {
               })
               .status(200)
               .json({
-                code: 200,
-                message: "success"
+                code: 200
               });
           } else {
             console.log("incorrect password");
